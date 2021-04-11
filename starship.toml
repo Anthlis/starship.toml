@@ -1,0 +1,95 @@
+# Don't print a new line at the start of the prompt
+add_newline = true
+
+# Make prompt a single line instead of two lines
+[line_break]
+disabled = false
+
+# Replace the "❯" symbol in the prompt with "➜"
+[character]
+# The "success_symbol" segment is being set to "➜" with the color "bold green"
+use_symbol_for_status = true
+success_symbol = "[ ➜](bold green)"
+# error_symbol = "[ ✖](bold red)"
+error_symbol = "[💥](bold red) "
+
+[cmd_duration]
+format = " took [$duration]($style) "
+style = "bold yellow"
+disabled = false
+
+[env_var]
+format = "with [$env_value]($style) "
+
+[time]
+disabled = false
+# format = " 🕙[ $time]($style) "
+format = "[ $time]($style) "
+# style = "#f57800"
+style = "white"
+time_format = "%T"
+
+[battery]
+full_symbol = "🔋"
+charging_symbol = "⚡️"
+discharging_symbol = "👨‍💻"
+
+
+[[battery.display]]  # "bold red" style when capacity is between 0% and 10%
+threshold = 10
+style = "bold red"
+
+[[battery.display]]  # "bold yellow" style when capacity is between 10% and 30%
+threshold = 30
+style = "bold yellow"
+
+[[battery.display]]  # "bold green" style when capacity is between 10% and 30%
+threshold = 90
+style = "white"
+
+[python]
+python_binary = "python3"
+
+[directory]
+truncation_length = 5
+format = "[$path]($style)[$lock_symbol]($lock_style) "
+# style = "bold #f57800"
+style = "bold cyan"
+read_only = "🔒"
+read_only_style= "bold italic white"
+
+# [hostname]
+# ssh_only = false
+# suffix = ">>"
+
+# trim_at = ".companyname.com"
+# disabled = false
+# style = "bold italic #87A752"
+# style = "bold yellow"
+
+
+[git_branch]
+format = " [$symbol$branch]($style) "
+symbol = "📁 "
+style = "purple"
+
+[git_commit]
+commit_hash_length = 8
+style = "bold white"
+
+[git_state]
+progress_divider = " of "
+
+[git_status]
+conflicted = "⚔️ "
+ahead = "🏎️ 💨 ×${count} "
+behind = "🐢 ×${count} "
+diverged = "🔱 🏎️ 💨 ×${ahead_count} 🐢 ×${behind_count} "
+untracked = "🛤️  ×${count} "
+stashed = "📦 "
+modified = "📝 ×${count} "
+staged = "🗃️  ×${count} "
+renamed = "📛 ×${count} "
+deleted = "🗑️  ×${count} "
+style = "bright-white"
+format = "$all_status$ahead_behind"
